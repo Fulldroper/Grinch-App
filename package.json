@@ -1,0 +1,31 @@
+{
+  "name": "grinch",
+  "version": "1.0.0",
+  "description": "My Electron app",
+  "main": "./src/index.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "nodemon --exec \"npm start\"",
+    "test:build": "set ELECTRON_ENABLE_LOGGING=1 && %cd%/build/win-unpacked/grinch.exe",
+    "build": "electron-builder --win",
+    "build:pub": "electron-builder --win -p always"
+  },
+  "build": {
+    "productName": "grinch",
+    "appId": "com.fulldroper.grinch",
+    "compression": "maximum",
+    "files": [
+      "src/**/*",
+      "assets/**/*",
+      "package.json"
+    ],
+    "win": {
+      "icon": "assets/icons/icon.ico"
+    }
+  },
+  "devDependencies": {
+    "electron": "^20.1.4",
+    "electron-builder": "^23.3.3",
+    "nodemon": "^2.0.20"
+  }
+}
